@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+$primary: #0f78ff;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  width: 100%;
+  font-family: "Ubuntu", sans-serif;
+  position: relative;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary;
+  border-radius: 12px;
+  transform: translateX(-2px);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 12px;
+}

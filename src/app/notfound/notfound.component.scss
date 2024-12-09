@@ -1,0 +1,41 @@
+$primary: #0f78ff;
+$secondary: #ffffff;
+$third: #191953;
+$fourth: #bebfc3;
+$fifth: #333333;
+$sixth: #eac889;
+$seventh: #000000;
+$eighth: #274fa0;
+
+section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+  img {
+    max-width: 450px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+  button {
+    max-width: 220px;
+    width: 100%;
+    height: 56px;
+    border-radius: 15px;
+    background-color: $primary;
+    border: 0;
+    color: $secondary;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    &:hover {
+      background-color: $eighth;
+    }
+  }
+}

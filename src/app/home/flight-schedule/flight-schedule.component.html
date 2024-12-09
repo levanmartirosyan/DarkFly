@@ -1,0 +1,91 @@
+<section>
+  <div class="head">
+    <div class="headMenu">
+      <div class="liveCircle">
+        <div class="circle"></div>
+      </div>
+      <h3>Select Airport <i class="fa-solid fa-chevron-down"></i></h3>
+      <div class="dropMenu">
+        <span>Tbilisi Airport</span>
+        <span>Batumi Airport</span>
+      </div>
+    </div>
+    <div class="lastUpdated">
+      <span
+        >Last updated:
+        {{ flightSchedule.UpdateDate | date : "HH:mm, dd MMMM" }}</span
+      >
+    </div>
+    <div class="tableSwitcher">
+      <span
+        (click)="chooseSchedule = 'departure'"
+        [class.active]="chooseSchedule === 'departure'"
+        >Departure</span
+      >
+      <span
+        (click)="chooseSchedule = 'arrival'"
+        [class.active]="chooseSchedule === 'arrival'"
+        >Arrival</span
+      >
+    </div>
+  </div>
+  @switch (chooseSchedule) { @case ('departure') {
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Airline</th>
+          <th>Flight No</th>
+          <th>Destination</th>
+          <th>Date</th>
+          <th>Scheduled</th>
+          <th>Estimated</th>
+          <th>Remark</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of flightSchedule.DepartureFlights; track $index) {
+        <tr>
+          <td>{{ item.AirlineName }}</td>
+          <td>{{ item.FlightNo }}</td>
+          <td>{{ item.Destination }}</td>
+          <td>{{ item.ScheduledDate | date : "d MMM" }}</td>
+          <td>{{ item.ScheduledDate | date : "HH:mm" }}</td>
+          <td>{{ item.EstimatedDate | date : "HH:mm" }}</td>
+          <td>{{ item.Remark }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  } @case ('arrival') {
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Airline</th>
+          <th>Flight No</th>
+          <th>Destination</th>
+          <th>Date</th>
+          <th>Scheduled</th>
+          <th>Estimated</th>
+          <th>Remark</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of flightSchedule.ArrivalFlights; track $index) {
+        <tr>
+          <td>{{ item.AirlineName }}</td>
+          <td>{{ item.FlightNo }}</td>
+          <td>{{ item.Destination }}</td>
+          <td>{{ item.ScheduledDate | date : "d MMM" }}</td>
+          <td>{{ item.ScheduledDate | date : "HH:mm" }}</td>
+          <td>{{ item.EstimatedDate | date : "HH:mm" }}</td>
+          <td>{{ item.Remark }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  } }
+</section>
