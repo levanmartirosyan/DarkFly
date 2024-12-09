@@ -8,12 +8,15 @@ $seventh: #000000;
 $eighth: #274fa0;
 
 section {
+  max-width: 1250px;
+  margin: 0 auto;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 35px;
+  margin-top: 50px;
   img {
     max-width: 450px;
     width: 100%;

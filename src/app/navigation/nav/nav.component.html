@@ -3,6 +3,18 @@
     <img src="/darkfly.png" alt="" />
   </div>
   <div class="menus">
-    <span><img src="/icons/user.svg" alt="" />Login</span>
+    @if (dsjkia) {
+    <span (click)="openAuthWindow()"
+      ><img src="/icons/user.svg" alt="" />Login</span
+    >
+    } @else {
+    <span (click)="openAuthWindow()"
+      ><img src="/icons/user.svg" alt="" />Profile</span
+    >
+    }
   </div>
 </nav>
+
+@if (auth) {
+<app-auth (sendCloseCommand)="getAnswerFromAuth($event)"></app-auth>
+}

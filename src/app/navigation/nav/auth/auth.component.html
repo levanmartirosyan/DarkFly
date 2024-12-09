@@ -1,0 +1,59 @@
+<div class="authComp">
+  @switch (authSwitcher) { @case ('authorization') {
+  <div class="auth">
+    <div class="top">
+      <span>LOGIN</span>
+      <i class="fa-solid fa-x" (click)="sendAnswerFromAuth()"></i>
+    </div>
+    <div class="body">
+      <form [formGroup]="authorization" (ngSubmit)="login()">
+        <div>
+          <input type="email" placeholder="E-mail" formControlName="email" />
+        </div>
+        <div>
+          <input
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </div>
+        <button type="submit">LOGIN</button>
+      </form>
+    </div>
+    <div class="foot">
+      <span
+        >Don't have username?
+        <span (click)="authSwitcher = 'registration'">Register</span></span
+      >
+    </div>
+  </div>
+  } @case ('registration') {
+  <div class="register">
+    <div class="top">
+      <span>REGISTER</span>
+      <i class="fa-solid fa-x" (click)="sendAnswerFromAuth()"></i>
+    </div>
+    <div class="body">
+      <form [formGroup]="authorization" (ngSubmit)="login()">
+        <div>
+          <input type="email" placeholder="E-mail" formControlName="email" />
+        </div>
+        <div>
+          <input
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </div>
+        <button type="submit">LOGIN</button>
+      </form>
+    </div>
+    <div class="foot">
+      <span (click)="authSwitcher = 'authorization'"
+        >I already have an account</span
+      >
+    </div>
+  </div>
+  } }
+</div>
+<div class="overlay"></div>

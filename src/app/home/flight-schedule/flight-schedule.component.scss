@@ -13,7 +13,7 @@ section {
   flex-direction: column;
   align-items: center;
   .head {
-    max-width: 1200px;
+    max-width: 1250px;
     width: 100%;
     background-color: $third;
     border-radius: 15px 15px 0 0;
@@ -135,15 +135,16 @@ section {
     }
   }
   .table-wrapper {
-    max-width: 1200px;
+    max-width: 1250px;
     width: 100%;
     overflow-x: auto;
     table {
       width: 100%;
       background-color: $third;
-      border-radius: 0 0 15px 15px;
       border-collapse: collapse;
-      display: table;
+      display: block;
+      max-height: 650px;
+      overflow-y: auto;
       thead {
         display: table-header-group;
         tr {
@@ -157,8 +158,6 @@ section {
       }
       tbody {
         display: block;
-        max-height: 600px;
-        overflow-y: auto;
         width: 100%;
       }
       ::-webkit-scrollbar-thumb {
@@ -182,6 +181,20 @@ section {
       }
     }
   }
+  .mobileLastUpdate {
+    display: none;
+    max-width: 1250px;
+    width: 100%;
+    background-color: $third;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 15px 15px;
+    padding: 15px 0;
+    span {
+      color: $fourth;
+      font-size: 14px;
+    }
+  }
 }
 
 @keyframes pulse {
@@ -193,5 +206,44 @@ section {
   }
   100% {
     transform: scale(0.8);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  section {
+    .lastUpdated {
+      display: none;
+    }
+    .mobileLastUpdate {
+      display: flex;
+    }
+  }
+}
+
+@media screen and (max-width: 430px) {
+  section {
+    .head {
+      .headMenu {
+        gap: 10px;
+        h3 {
+          font-size: 16px;
+          gap: 5px;
+        }
+        .liveTable {
+          h4 {
+            display: none;
+          }
+        }
+        .dropMenu {
+          width: 150px;
+        }
+      }
+      .tableSwitcher {
+        width: 145px;
+        span {
+          font-size: 14px;
+        }
+      }
+    }
   }
 }

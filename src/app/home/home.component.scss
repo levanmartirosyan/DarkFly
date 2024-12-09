@@ -1,5 +1,17 @@
+$primary: #0f78ff;
+$secondary: #ffffff;
+$third: #191953;
+$fourth: #bebfc3;
+$fifth: #333333;
+$sixth: #eac889;
+$seventh: #000000;
+$eighth: #274fa0;
+
 section {
+  max-width: 1250px;
+  margin: 0 auto;
   width: 100%;
   padding: 0 20px;
   margin-top: 90px;
+  background-color: $secondary;
 }
