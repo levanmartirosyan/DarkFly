@@ -13,6 +13,7 @@ section {
   flex-direction: column;
   align-items: center;
   .head {
+    max-width: 1200px;
     width: 100%;
     background-color: $third;
     border-radius: 15px 15px 0 0;
@@ -25,28 +26,80 @@ section {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      .liveCircle {
-        width: 20px;
-        height: 20px;
-        background-color: rgba($color: #df5f5f, $alpha: 0.5);
-        border-radius: 50%;
+      gap: 30px;
+      position: relative;
+      .liveTable {
         display: flex;
         align-items: center;
         justify-content: center;
-        .circle {
-          width: 100%;
-          height: 100%;
+        gap: 10px;
+        h4 {
+          color: $fourth;
+        }
+        .liveCircle {
+          width: 20px;
+          height: 20px;
+          background-color: rgba($color: #df5f5f, $alpha: 0.5);
           border-radius: 50%;
-          background-color: #ff3c3c;
-          animation: pulse 1s infinite ease-in-out;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #ff3c3c;
+            animation: pulse 1s infinite ease-in-out;
+          }
         }
       }
       h3 {
         color: $secondary;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        i {
+          transition: 0.3s ease;
+          font-size: 14px;
+        }
+        &.active {
+          i {
+            transform: rotateX(180deg);
+          }
+        }
       }
       .dropMenu {
-        display: none;
+        width: 180px;
+        height: 96px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        right: -50%;
+        bottom: -110px;
+        background-color: #474775;
+        border-radius: 10px;
+        span {
+          color: $secondary;
+          transition: 0.3s ease;
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding-left: 10px;
+          &:hover {
+            background-color: rgba($color: $secondary, $alpha: 0.2);
+            border-radius: 10px;
+          }
+          &.active {
+            background-color: rgba($color: $secondary, $alpha: 0.2);
+            border-radius: 10px;
+          }
+        }
       }
     }
     .lastUpdated {
@@ -63,9 +116,6 @@ section {
       height: 40px;
       position: relative;
       width: 160px;
-      background-color: transparent;
-      overflow: hidden;
-
       span {
         color: $secondary;
         cursor: pointer;
@@ -77,33 +127,15 @@ section {
         align-items: center;
         position: relative;
         transition: color 0.3s ease;
-
-        &::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba($color: $secondary, $alpha: 0.2);
-          transition: transform 0.3s ease; // Transition for sliding effect
-          z-index: -1;
-          transform: scaleX(0); // Start with a collapsed background
-          transform-origin: 100% 100%; // Position origin from the right
-        }
-
         &.active {
-          color: white;
-        }
-
-        &.active::before {
-          transform: scaleX(1); // Expand background to full width
-          transform-origin: 0 100%; // Position origin from the left for smooth transition
+          background-color: rgba($color: $secondary, $alpha: 0.2);
+          border-radius: 10px;
         }
       }
     }
   }
   .table-wrapper {
+    max-width: 1200px;
     width: 100%;
     overflow-x: auto;
     table {

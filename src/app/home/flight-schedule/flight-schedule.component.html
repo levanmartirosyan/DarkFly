@@ -1,14 +1,29 @@
 <section>
   <div class="head">
     <div class="headMenu">
-      <div class="liveCircle">
-        <div class="circle"></div>
+      <div class="liveTable">
+        <div class="liveCircle">
+          <div class="circle"></div>
+        </div>
+        <h4>Live</h4>
       </div>
-      <h3>Select Airport <i class="fa-solid fa-chevron-down"></i></h3>
+      <h3 (click)="openAirports()" [class.active]="airports === 'list'">
+        Airport <i class="fa-solid fa-chevron-down"></i>
+      </h3>
+      @switch (airports) { @case ('list') {
       <div class="dropMenu">
-        <span>Tbilisi Airport</span>
-        <span>Batumi Airport</span>
+        <span
+          (click)="getFlightSchedule('Tbilisi')"
+          [class.active]="savedCity === 'Tbilisi'"
+          >Tbilisi Airport</span
+        >
+        <span
+          (click)="getFlightSchedule('Batumi')"
+          [class.active]="savedCity === 'Batumi'"
+          >Batumi Airport</span
+        >
       </div>
+      } }
     </div>
     <div class="lastUpdated">
       <span

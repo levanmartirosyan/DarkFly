@@ -14,22 +14,28 @@ export class FlightScheduleComponent implements OnInit {
   constructor(public apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.getFlightSchedule();
+    this.getFlightSchedule('Tbilisi');
   }
 
   public chooseSchedule: string = 'departure';
   public flightSchedule: any;
   public flight: any;
+  public savedCity: any;
 
-  getFlightSchedule() {
-    this.apiService.getFlightSchedule().subscribe({
+  getFlightSchedule(city: any) {
+    this.savedCity = city;
+    this.apiService.getFlightSchedule(city).subscribe({
       next: (data: any) => {
-        console.log(data);
         this.flightSchedule = data.Data;
       },
       error: (error: any) => {
         console.log(error);
       },
     });
+  }
+
+  public airports: any;
+  openAirports() {
+    this.airports = this.airports === 'list' ? null : 'list';
   }
 }
