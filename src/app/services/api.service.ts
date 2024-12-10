@@ -28,4 +28,10 @@ export class ApiService {
       }
     );
   }
+
+  getFlights() {
+    return this.http.get(
+      'https://freeapi.miniprojectideas.com/api/FlightBooking/GetAllFlights'
+    );
+  }
 }
