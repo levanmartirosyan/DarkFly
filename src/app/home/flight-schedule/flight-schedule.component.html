@@ -26,10 +26,7 @@
       } }
     </div>
     <div class="lastUpdated">
-      <span
-        >Last updated:
-        {{ flightSchedule.UpdateDate | date : "HH:mm, dd MMMM" }}</span
-      >
+      <span>Last updated: {{ lastUpdate | date : "HH:mm, dd MMMM" }}</span>
     </div>
     <div class="tableSwitcher">
       <span
@@ -85,9 +82,6 @@
     </table>
   </div>
   <div class="mobileLastUpdate">
-    <span
-      >Last updated:
-      {{ flightSchedule.UpdateDate | date : "HH:mm, dd MMMM" }}</span
-    >
+    <span>Last updated: {{ lastUpdate | date : "HH:mm, dd MMMM" }}</span>
   </div>
 </section>

@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-auth',
@@ -60,7 +61,11 @@ export class AuthComponent implements OnInit {
   });
 
   register() {
-    this.apiService.registration(this.registration.value).subscribe({
+    const header = new HttpHeaders({
+      accept: 'text/plain',
+      'Content-Type': 'application/json-patch+json',
+    });
+    this.apiService.registration(this.registration.value, header).subscribe({
       next: (data: any) => {
         console.log(data);
       },

@@ -21,12 +21,14 @@ export class FlightScheduleComponent implements OnInit {
   public flightSchedule: any;
   public flight: any;
   public savedCity: any;
+  public lastUpdate: any;
 
   getFlightSchedule(city: any) {
     this.savedCity = city;
     this.apiService.getFlightSchedule(city).subscribe({
       next: (data: any) => {
         this.flightSchedule = data.Data;
+        this.lastUpdate = data.Data.UpdateDate;
       },
       error: (error: any) => {
         console.log(error);
