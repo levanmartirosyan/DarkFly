@@ -19,4 +19,10 @@ export class ApiService {
       body
     );
   }
+  registration(body: any) {
+    return this.http.post(
+      'https://freeapi.miniprojectideas.com/api/FlightBooking/Register',
+      body
+    );
+  }
 }

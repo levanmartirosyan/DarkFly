@@ -16,7 +16,7 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public auth: boolean = true;
+  public auth: boolean = false;
   public dsjkia: boolean = true;
   openAuthWindow() {
     this.auth = !this.auth;

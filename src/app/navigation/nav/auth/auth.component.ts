@@ -46,4 +46,27 @@ export class AuthComponent implements OnInit {
       },
     });
   }
+
+  public registration: FormGroup = new FormGroup({
+    name: new FormControl('', Validators.required),
+    mobileNo: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    city: new FormControl('', Validators.required),
+    address: new FormControl('', Validators.required),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+    ]),
+  });
+
+  register() {
+    this.apiService.registration(this.registration.value).subscribe({
+      next: (data: any) => {
+        console.log(data);
+      },
+      error: (error: any) => {
+        console.log(error);
+      },
+    });
+  }
 }
